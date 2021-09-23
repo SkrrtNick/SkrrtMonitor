@@ -17,7 +17,6 @@ import scripts.api.Loggable;
 import scripts.api.Logger;
 import scripts.data.Profile;
 import scripts.gui.GUI;
-import scripts.tasks.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -52,7 +51,7 @@ public class SkrrtMonitor extends Script implements Painting, MessageListening07
     @Override
     public void run() {
         try {
-            fxml = new URL("https://raw.githubusercontent.com/SkrrtNick/SkrrtClockworks/master/src/scripts/gui/gui.fxml");
+            fxml = new URL("https://raw.githubusercontent.com/SkrrtNick/SkrrtMonitor/master/src/scripts/gui/gui.fxml");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
