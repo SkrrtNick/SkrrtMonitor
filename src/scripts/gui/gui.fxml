@@ -30,7 +30,6 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                  <MenuItem mnemonicParsing="false" text="Edit" />
                   <MenuItem fx:id="mnuDelete" mnemonicParsing="false" text="Duplicate" />
                 <MenuItem mnemonicParsing="false" text="Delete" />
               </items>
