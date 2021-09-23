@@ -8,14 +8,15 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.GUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.GUIController">
    <children>
-      <ButtonBar layoutY="386.0" prefHeight="38.0" prefWidth="610.0" style="-fx-background-color: darkgray;">
+      <ButtonBar layoutX="-2.0" layoutY="446.0" prefHeight="38.0" prefWidth="677.0" style="-fx-background-color: darkgray;">
         <buttons>
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSavePressed" text="Save" />
             <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadPressed" text="Load" />
@@ -27,7 +28,7 @@
             <Insets right="10.0" />
          </padding>
       </ButtonBar>
-      <ListView fx:id="listMonitors" layoutX="364.0" layoutY="54.0" prefHeight="301.0" prefWidth="234.0">
+      <ListView fx:id="listMonitors" layoutX="322.0" layoutY="56.0" prefHeight="324.0" prefWidth="334.0">
          <contextMenu>
             <ContextMenu>
               <items>
@@ -39,8 +40,8 @@
          </contextMenu></ListView>
       <Text layoutX="30.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item ID's" />
       <TextField fx:id="txtInput" layoutX="132.0" layoutY="58.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="27.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discord URL" />
-      <TextField fx:id="txtUrl" layoutX="133.0" layoutY="287.0" />
+      <Text layoutX="27.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discord URL" />
+      <TextField fx:id="txtUrl" layoutX="133.0" layoutY="322.0" />
       <Text layoutX="30.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inputs">
          <font>
             <Font name="Calibri" size="18.0" />
@@ -60,22 +61,22 @@
          </font>
       </Text>
       <Text layoutX="28.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Type" />
-      <Text layoutX="27.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Threshold Amount" />
+      <Text layoutX="27.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target Amount" />
       <TextField fx:id="txtThreshold" layoutX="132.0" layoutY="233.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="27.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+      <Text layoutX="27.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <ComboBox fx:id="cmbProfile" editable="true" layoutX="132.0" layoutY="322.0" prefWidth="150.0" />
-      <Text layoutX="28.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+      <ComboBox fx:id="cmbProfile" editable="true" layoutX="134.0" layoutY="365.0" prefWidth="150.0" />
+      <Text layoutX="28.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
       <Text layoutX="237.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Hyperlink layoutX="439.0" layoutY="355.0" onAction="#threadClicked" text="Forum Thread" />
-      <Hyperlink layoutX="523.0" layoutY="355.0" onAction="#profileClicked" text="Tribot Profile" />
+      <Hyperlink layoutX="489.0" layoutY="387.0" onAction="#threadClicked" text="Forum Thread" />
+      <Hyperlink layoutX="579.0" layoutY="387.0" onAction="#profileClicked" text="Tribot Profile" />
       <Text layoutX="82.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hourly)">
          <font>
             <Font name="System Italic" size="12.0" />
@@ -86,7 +87,14 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="26.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Name" />
-      <TextField fx:id="txtName" layoutX="132.0" layoutY="354.0" />
+      <Text layoutX="25.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Name" />
+      <TextField fx:id="txtName" layoutX="133.0" layoutY="406.0" />
+      <Spinner fx:id="spinCooldown" editable="true" layoutX="132.0" layoutY="271.0" />
+      <Text layoutX="26.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cooldown" />
+      <Text layoutX="82.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Mins)">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
