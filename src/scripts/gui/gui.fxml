@@ -20,6 +20,7 @@
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSavePressed" text="Save" />
             <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadPressed" text="Load" />
             <Button fx:id="btnAddMonitor" mnemonicParsing="false" onAction="#addMonitorPressed" text="Add Monitor" />
+            <Button fx:id="btnPreset" mnemonicParsing="false" onAction="#addLoadPreset" text="Load Preset" />
           <Button fx:id="btnStart" mnemonicParsing="false" onAction="#startPressed" prefHeight="25.0" text="Start" />
         </buttons>
          <padding>
@@ -67,7 +68,7 @@
       </Text>
       <ComboBox fx:id="cmbProfile" editable="true" layoutX="132.0" layoutY="322.0" prefWidth="150.0" />
       <Text layoutX="28.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
-      <Text layoutX="237.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
+      <Text layoutX="237.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
          <font>
             <Font size="24.0" />
          </font>
