@@ -14,8 +14,8 @@
 
 <AnchorPane prefHeight="393.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.presets.PresetController">
    <children>
-      <ListView layoutX="233.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0" />
-      <ListView layoutX="410.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0" />
+      <ListView fx:id="listQuests" layoutX="233.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0" />
+      <ListView fx:id="listPresets" layoutX="410.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0" />
       <Text layoutX="233.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quests" />
       <Text layoutX="410.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Presets" />
       <Text layoutX="247.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Presets">
@@ -78,9 +78,9 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Slayer" GridPane.columnIndex="1" GridPane.rowIndex="19" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Farming" GridPane.columnIndex="1" GridPane.rowIndex="20" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Construction" GridPane.columnIndex="1" GridPane.rowIndex="21" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Spinner fx:id="spinAttack" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" />
+                  <Spinner fx:id="spinStrength" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Spinner fx:id="spinDefence" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
@@ -88,7 +88,7 @@
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Spinner fx:id="spinRanged" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="15" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="14" />
                   <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="13" />
