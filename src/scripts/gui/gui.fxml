@@ -21,14 +21,14 @@
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSavePressed" text="Save" />
             <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadPressed" text="Load" />
             <Button fx:id="btnAddMonitor" mnemonicParsing="false" onAction="#addMonitorPressed" text="Add Monitor" />
-            <Button fx:id="btnPreset" mnemonicParsing="false" onAction="#addLoadPreset" text="Load Preset" />
+            <Button fx:id="btnPreset" mnemonicParsing="false" onAction="#btnLoadPresetPressed" text="Add Preset" />
           <Button fx:id="btnStart" mnemonicParsing="false" onAction="#startPressed" prefHeight="25.0" text="Start" />
         </buttons>
          <padding>
             <Insets right="10.0" />
          </padding>
       </ButtonBar>
-      <ListView fx:id="listMonitors" layoutX="322.0" layoutY="56.0" prefHeight="324.0" prefWidth="334.0">
+      <ListView fx:id="listMonitors" layoutX="322.0" layoutY="56.0" prefHeight="348.0" prefWidth="334.0">
          <contextMenu>
             <ContextMenu>
               <items>
@@ -70,13 +70,13 @@
       </Text>
       <ComboBox fx:id="cmbProfile" editable="true" layoutX="134.0" layoutY="365.0" prefWidth="150.0" />
       <Text layoutX="28.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
-      <Text layoutX="237.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
+      <Text layoutX="269.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Hyperlink layoutX="489.0" layoutY="387.0" onAction="#threadClicked" text="Forum Thread" />
-      <Hyperlink layoutX="579.0" layoutY="387.0" onAction="#profileClicked" text="Tribot Profile" />
+      <Hyperlink layoutX="489.0" layoutY="407.0" onAction="#threadClicked" text="Forum Thread" />
+      <Hyperlink layoutX="582.0" layoutY="407.0" onAction="#profileClicked" text="Tribot Profile" />
       <Text layoutX="82.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hourly)">
          <font>
             <Font name="System Italic" size="12.0" />
