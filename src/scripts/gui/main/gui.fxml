@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="673.0" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.GUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.main.GUIController">
    <children>
       <ButtonBar layoutX="-2.0" layoutY="446.0" prefHeight="38.0" prefWidth="677.0" style="-fx-background-color: darkgray;">
         <buttons>
@@ -97,4 +97,4 @@
          </font>
       </Text>
    </children>
-</fx:root>
+</AnchorPane>
