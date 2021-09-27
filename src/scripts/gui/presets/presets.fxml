@@ -14,10 +14,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="393.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.presets.PresetController">
+<AnchorPane prefHeight="395.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.presets.PresetController">
    <children>
       <ListView fx:id="listQuests" layoutX="233.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0" />
-      <ListView fx:id="listPresets" layoutX="410.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0">
+      <ListView fx:id="listPresets" layoutX="583.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0">
          <contextMenu>
             <ContextMenu>
               <items>
@@ -25,9 +25,9 @@
               </items>
             </ContextMenu>
          </contextMenu></ListView>
-      <Text layoutX="233.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quests" />
-      <Text layoutX="410.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Presets" />
-      <Text layoutX="247.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Presets">
+      <Text layoutX="233.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quest List" />
+      <Text layoutX="583.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Presets" />
+      <Text layoutX="333.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Presets">
          <font>
             <Font name="Calibri" size="22.0" />
          </font>
@@ -117,5 +117,15 @@
       <Button fx:id="btnHiscore" layoutX="12.0" layoutY="357.0" mnemonicParsing="false" onAction="#btnHiscoresPressed" text="Lookup Hiscores" />
       <TextField fx:id="txtUsername" layoutX="131.0" layoutY="357.0" />
       <Button fx:id="btnIngame" layoutX="11.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnIngamePressed" text="Grab Ingame Info" />
+      <ListView fx:id="listEnabledQuests" layoutX="404.0" layoutY="71.0" prefHeight="242.0" prefWidth="162.0">
+         <contextMenu>
+            <ContextMenu>
+               <items>
+                  <MenuItem fx:id="menuAddPreset1" mnemonicParsing="false" onAction="#addPresetPressed" text="Add Preset" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </ListView>
+      <Text layoutX="404.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Quests" />
    </children>
 </AnchorPane>
