@@ -105,8 +105,8 @@
          </content>
       </ScrollPane>
       <Text layoutX="43.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skills" />
-      <Button fx:id="btnHiscore" layoutX="12.0" layoutY="357.0" mnemonicParsing="false" text="Lookup Hiscores" />
+      <Button fx:id="btnHiscore" layoutX="12.0" layoutY="357.0" mnemonicParsing="false" onAction="#btnHiscoresPressed" text="Lookup Hiscores" />
       <TextField fx:id="txtUsername" layoutX="131.0" layoutY="357.0" />
-      <Button fx:id="btnIngame" layoutX="11.0" layoutY="321.0" mnemonicParsing="false" text="Grab Ingame Info" />
+      <Button fx:id="btnIngame" layoutX="11.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnIngamePressed" text="Grab Ingame Info" />
    </children>
 </AnchorPane>
