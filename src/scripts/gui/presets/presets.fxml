@@ -81,27 +81,25 @@
                   <Spinner fx:id="spinAttack" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" />
                   <Spinner fx:id="spinStrength" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <Spinner fx:id="spinDefence" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Spinner fx:id="spinCrafting" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <Spinner fx:id="spinHitpoints" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Spinner fx:id="spinRunecrafting" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Spinner fx:id="spinMagic" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Spinner fx:id="spinPrayer" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                   <Spinner fx:id="spinRanged" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="20" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="19" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="18" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="16" />
-                  <Spinner prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                  <Spinner fx:id="spinAgility" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                  <Spinner fx:id="spinWoodcutting" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                  <Spinner fx:id="spinFiremaking" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                  <Spinner fx:id="spinCooking" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                  <Spinner fx:id="spinSmithing" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <Spinner fx:id="spinFishing" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Spinner fx:id="spinMining" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Spinner fx:id="spinFarming" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                  <Spinner fx:id="spinSlayer" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                  <Spinner fx:id="spinFletching" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                  <Spinner fx:id="spinThieving" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                  <Spinner fx:id="spinHerblore" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                  <Spinner fx:id="spinConstruction" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="21" />
                </children>
             </GridPane>
          </content>
