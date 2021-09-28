@@ -121,7 +121,7 @@
                            <contextMenu>
                               <ContextMenu>
                                  <items>
-                                    <MenuItem fx:id="menuAddPreset" mnemonicParsing="false" onAction="#addPresetPressed" text="Add Preset" />
+                                    <MenuItem fx:id="menuAddPreset" mnemonicParsing="false" onAction="#addPresetClicked" text="Add Preset" />
                                  </items>
                               </ContextMenu>
                            </contextMenu>
