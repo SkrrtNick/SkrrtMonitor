@@ -8,93 +8,224 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.main.GUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.gui.main.GUIController">
    <children>
-      <ButtonBar layoutX="-2.0" layoutY="446.0" prefHeight="38.0" prefWidth="677.0" style="-fx-background-color: darkgray;">
-        <buttons>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSavePressed" text="Save" />
-            <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadPressed" text="Load" />
-            <Button fx:id="btnAddMonitor" mnemonicParsing="false" onAction="#addMonitorPressed" text="Add Monitor" />
-            <Button fx:id="btnPreset" mnemonicParsing="false" onAction="#btnLoadPresetPressed" text="Add Preset" />
-          <Button fx:id="btnStart" mnemonicParsing="false" onAction="#startPressed" prefHeight="25.0" text="Start" />
-        </buttons>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </ButtonBar>
-      <ListView fx:id="listMonitors" layoutX="322.0" layoutY="56.0" prefHeight="348.0" prefWidth="334.0">
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                  <MenuItem fx:id="mnuEdit" mnemonicParsing="false" onAction="#editClicked" text="Edit" />
-                <MenuItem fx:id="mnuDelete" mnemonicParsing="false" onAction="#deleteClicked" text="Delete" />
-                  <MenuItem fx:id="mnuDuplicate1" mnemonicParsing="false" onAction="#duplicateClicked" text="Duplicate" />
-              </items>
-            </ContextMenu>
-         </contextMenu></ListView>
-      <Text layoutX="30.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item ID's" />
-      <TextField fx:id="txtInput" layoutX="132.0" layoutY="58.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="27.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discord URL" />
-      <TextField fx:id="txtUrl" layoutX="133.0" layoutY="322.0" />
-      <Text layoutX="30.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inputs">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="28.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Outputs">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="30.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item ID's" />
-      <TextField fx:id="txtOutput" layoutX="132.0" layoutY="125.0" prefHeight="25.0" prefWidth="149.0" />
-      <ComboBox fx:id="cmbType" layoutX="132.0" layoutY="194.0" prefWidth="150.0" />
-      <Text layoutX="29.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification Settings">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="28.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Type" />
-      <Text layoutX="27.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target Amount" />
-      <TextField fx:id="txtThreshold" layoutX="132.0" layoutY="233.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="27.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="cmbProfile" editable="true" layoutX="134.0" layoutY="365.0" prefWidth="150.0" />
-      <Text layoutX="28.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
-      <Text layoutX="269.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Hyperlink layoutX="489.0" layoutY="407.0" onAction="#threadClicked" text="Forum Thread" />
-      <Hyperlink layoutX="582.0" layoutY="407.0" onAction="#profileClicked" text="Tribot Profile" />
-      <Text layoutX="82.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hourly)">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Text>
-      <Text layoutX="92.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hourly)">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Text>
-      <Text layoutX="25.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Name" />
-      <TextField fx:id="txtName" layoutX="133.0" layoutY="406.0" />
-      <Spinner fx:id="spinCooldown" editable="true" layoutX="132.0" layoutY="271.0" />
-      <Text layoutX="26.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cooldown" />
-      <Text layoutX="82.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Mins)">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Text>
+      <TabPane prefHeight="513.0" prefWidth="728.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="General">
+               <content>
+                  <AnchorPane prefHeight="360.0" prefWidth="596.0">
+                     <children>
+                        <ButtonBar layoutY="446.0" prefHeight="38.0" prefWidth="728.0" style="-fx-background-color: darkgray;">
+                          <buttons>
+                              <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSavePressed" text="Save" />
+                              <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadPressed" text="Load" />
+                              <Button fx:id="btnAddMonitor" mnemonicParsing="false" onAction="#addMonitorPressed" text="Add Monitor" />
+                            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#startPressed" prefHeight="25.0" text="Start" />
+                          </buttons>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </ButtonBar>
+                        <Text layoutX="296.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkrrtMonitor">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inputs">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Text>
+                        <ListView fx:id="listMonitors" layoutX="365.0" layoutY="42.0" prefHeight="348.0" prefWidth="334.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                    <MenuItem fx:id="mnuEdit" mnemonicParsing="false" onAction="#editClicked" text="Edit" />
+                                  <MenuItem fx:id="mnuDelete" mnemonicParsing="false" onAction="#deleteClicked" text="Delete" />
+                                    <MenuItem fx:id="mnuDuplicate1" mnemonicParsing="false" onAction="#duplicateClicked" text="Duplicate" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ListView>
+                        <Text layoutX="31.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item ID's" />
+                        <TextField fx:id="txtInput" layoutX="133.0" layoutY="55.0" prefHeight="25.0" prefWidth="149.0" />
+                        <Text layoutX="28.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discord URL" />
+                        <TextField fx:id="txtUrl" layoutX="134.0" layoutY="319.0" />
+                        <Text layoutX="29.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Outputs">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="31.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item ID's" />
+                        <TextField fx:id="txtOutput" layoutX="133.0" layoutY="122.0" prefHeight="25.0" prefWidth="149.0" />
+                        <ComboBox fx:id="cmbType" layoutX="133.0" layoutY="191.0" prefWidth="150.0" />
+                        <Text layoutX="30.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification Settings">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="29.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Type" />
+                        <Text layoutX="28.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target Amount" />
+                        <TextField fx:id="txtThreshold" layoutX="133.0" layoutY="230.0" prefHeight="25.0" prefWidth="149.0" />
+                        <Text layoutX="28.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="cmbProfile" editable="true" layoutX="135.0" layoutY="362.0" prefWidth="150.0" />
+                        <Text layoutX="29.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+                        <Hyperlink layoutX="490.0" layoutY="404.0" onAction="#threadClicked" text="Forum Thread" />
+                        <Hyperlink layoutX="583.0" layoutY="404.0" onAction="#profileClicked" text="Tribot Profile" />
+                        <Text layoutX="83.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hourly)">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="93.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hourly)">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="26.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor Name" />
+                        <TextField fx:id="txtName" layoutX="134.0" layoutY="403.0" />
+                        <Spinner fx:id="spinCooldown" editable="true" layoutX="133.0" layoutY="268.0" />
+                        <Text layoutX="27.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cooldown" />
+                        <Text layoutX="83.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Mins)">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Presets">
+               <content>
+                  <AnchorPane prefHeight="395.0" prefWidth="1079.0">
+                     <children>
+                        <ListView fx:id="listQuests" layoutX="205.0" layoutY="71.0" prefHeight="324.0" prefWidth="162.0" />
+                        <ListView fx:id="listPresets" layoutX="547.0" layoutY="71.0" prefHeight="325.0" prefWidth="162.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem fx:id="menuAddPreset" mnemonicParsing="false" onAction="#addPresetPressed" text="Add Preset" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ListView>
+                        <Text layoutX="205.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quest List" />
+                        <Text layoutX="547.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Presets" />
+                        <Text layoutX="322.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Presets">
+                           <font>
+                              <Font name="Calibri" size="22.0" />
+                           </font>
+                        </Text>
+                        <ScrollPane layoutX="32.0" layoutY="71.0" prefHeight="323.0" prefWidth="162.0">
+                           <content>
+                              <GridPane prefHeight="803.0" prefWidth="138.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="8.0" prefWidth="8.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="77.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="10.0" prefWidth="53.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack" GridPane.columnIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Strength" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defence" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prayer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Magic" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Runecrafting" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hitpoints" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Crafting" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mining" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Smithing" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fishing" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cooking" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Firemaking" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Woodcutting" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agility" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Herblore" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thieving" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fletching" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Slayer" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Farming" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Construction" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                                    <Spinner fx:id="spinAttack" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" />
+                                    <Spinner fx:id="spinStrength" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Spinner fx:id="spinDefence" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Spinner fx:id="spinCrafting" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                    <Spinner fx:id="spinHitpoints" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                    <Spinner fx:id="spinRunecrafting" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <Spinner fx:id="spinMagic" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <Spinner fx:id="spinPrayer" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                    <Spinner fx:id="spinRanged" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Spinner fx:id="spinAgility" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                                    <Spinner fx:id="spinWoodcutting" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                                    <Spinner fx:id="spinFiremaking" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                    <Spinner fx:id="spinCooking" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                    <Spinner fx:id="spinSmithing" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                    <Spinner fx:id="spinFishing" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                                    <Spinner fx:id="spinMining" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                    <Spinner fx:id="spinFarming" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                                    <Spinner fx:id="spinSlayer" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                                    <Spinner fx:id="spinFletching" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                                    <Spinner fx:id="spinThieving" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                    <Spinner fx:id="spinHerblore" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                                    <Spinner fx:id="spinConstruction" prefHeight="18.0" prefWidth="55.0" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                        <Text layoutX="32.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skills" />
+                        <Button fx:id="btnHiscore" layoutX="9.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnHiscoresPressed" text="Lookup Hiscores" />
+                        <TextField fx:id="txtUsername" layoutX="144.0" layoutY="445.0" />
+                        <Button fx:id="btnIngame" layoutX="10.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnIngamePressed" text="Grab Ingame Info" />
+                        <ListView fx:id="listEnabledQuests" layoutX="376.0" layoutY="71.0" prefHeight="324.0" prefWidth="162.0" />
+                        <Text layoutX="376.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Quests" />
+                        <Button fx:id="btnPresets" layoutX="144.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnShowPresetsClicked" text="Show all presets" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
