@@ -127,6 +127,6 @@
          </contextMenu>
       </ListView>
       <Text layoutX="404.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Quests" />
-      <Button fx:id="btnPresets" layoutX="154.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnShowPresetsPressed" text="Show all presets" />
+      <Button fx:id="btnPresets" layoutX="154.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnShowPresetsClicked" text="Show all presets" />
    </children>
 </AnchorPane>
