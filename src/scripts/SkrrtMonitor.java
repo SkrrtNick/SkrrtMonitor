@@ -3,30 +3,25 @@ package scripts;
 import lombok.Getter;
 import lombok.Setter;
 import org.tribot.api.General;
-import org.tribot.script.Script;
 import org.tribot.script.ScriptManifest;
-import org.tribot.script.interfaces.Arguments;
-import org.tribot.script.interfaces.MessageListening07;
-import org.tribot.script.interfaces.Painting;
-import org.tribot.script.sdk.Login;
-
+import org.tribot.script.sdk.painting.Painting;
+import org.tribot.script.sdk.script.ScriptConfig;
+import org.tribot.script.sdk.script.TribotScript;
 import org.tribot.script.sdk.util.ScriptSettings;
-import org.tribot.script.sdk.walking.GlobalWalking;
 import org.tribot.script.sdk.walking.adapter.DaxWalkerAdapter;
-import scripts.api.Loggable;
-import scripts.api.Logger;
+import scripts.api.*;
+import scripts.api.fluffee.FluffeesPaint;
+import scripts.api.fluffee.PaintInfo;
+import scripts.data.MethodMonitor;
 import scripts.data.Profile;
 import scripts.gui.GUI;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
-@ScriptManifest(name = "SkrrtMonitor", authors = {"SkrrtNick"}, category = "Quests")
-public class SkrrtMonitor extends Script implements Painting, MessageListening07, Arguments {
+@ScriptManifest(name = "SkrrtMonitor", authors = {"SkrrtNick"}, category = "Tools")
+public class SkrrtMonitor implements TribotScript, PaintInfo {
     Logger logger = new Logger().setHeader("SkrrtScripts");
     DaxWalkerAdapter daxWalkerAdapter = new DaxWalkerAdapter("sub_JmRkbIB2XRYqmf", "7227dd88-8182-4cd9-a3d9-00b8fa6ff56e");
     @Setter
@@ -42,106 +37,107 @@ public class SkrrtMonitor extends Script implements Painting, MessageListening07
     private static final long START_TIME = System.currentTimeMillis();
     private URL fxml;
     private GUI gui;
-    private double version = .03;
-
     @Setter
     @Getter
-    private static int reactionModifier;
+    private String mostProfitable;
+    @Setter
+    @Getter
+    private int mostProfit = 0, combinedProfit = 0;
+    Timer timer = new Timer(0);
+    private double version = .01;
 
     @Override
-    public void run() {
-        try {
-            fxml = new URL("https://raw.githubusercontent.com/SkrrtNick/SkrrtMonitor/master/src/scripts/gui/gui.fxml");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+    public String[] getPaintInfo() {
+        if(getRunningProfile().getMethodMonitors()==null){
+            return new String[]{"SkrrtMonitor v" + version, "Time ran: " + SkrrtPaint.getRuntimeString(), "Status: " + getStatus()};
         }
-        gui = new GUI(fxml);
-        gui.show();
-        while (gui.isOpen()) {
-            setStatus("Waiting on user input...");
-            sleep(500);
-        }
+        return new String[]{"SkrrtMonitor v" + version, "Time ran: " + SkrrtPaint.getRuntimeString(), "Status: " + getStatus(), "Most Profitable Method: " + getMostProfitable(), "Total Value of Monitored Methods: " + getCombinedProfit(getRunningProfile().getMethodMonitors())};
+    }
 
+    private final FluffeesPaint SkrrtPaint = new FluffeesPaint(this, FluffeesPaint.PaintLocations.BOTTOM_LEFT_PLAY_SCREEN, new Color[]{new Color(255, 251, 255)}, "Trebuchet MS", new Color[]{new Color(0, 0, 0, 124)},
+            new Color[]{new Color(179, 0, 0)}, 1, false, 5, 3, 0);
+
+    @Override
+    public void configure(ScriptConfig config) {
+        config.setRandomsAndLoginHandlerEnabled(false);
+    }
+
+    @Override
+    public void execute(String args) {
+        Painting.setPaint(SkrrtPaint::paint);
+        if (!args.isBlank()) {
+            ScriptSettings settings = ScriptSettings.getDefault();
+            settings.load(args, Profile.class).ifPresent(SkrrtMonitor::setRunningProfile);
+        }
+        if (getRunningProfile().getMethodMonitors()==null) {
+            try {
+                fxml = new URL("https://raw.githubusercontent.com/SkrrtNick/SkrrtMonitor/master/src/scripts/gui/main/gui.fxml");
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            gui = new GUI(fxml);
+            gui.show();
+            while (gui.isOpen()) {
+                setStatus("Waiting on user input...");
+                General.sleep(500);
+            }
+        }
         logger.setHeader("Profile").setMessage(getRunningProfile().toString()).print();
-        GlobalWalking.setEngine(daxWalkerAdapter);
-        if (!Login.isLoggedIn()) {
-            Login.login();
-        }
-    }
 
-    private Image getImage(String url) {
-        try {
-            return ImageIO.read(new URL(url));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    final Image paintBg = getImage("https://imgur.com/kMTEXwM.png");
-
-    final Image logo = getImage("https://imgur.com/9wb94qw.png");
-
-    final Image timeIcon = getImage("https://imgur.com/Op2TyPM.png");
-
-    final Image lootIcon = getImage("https://imgur.com/l1GJVQe.png");
-
-    final Image clockworkIcon = getImage("https://imgur.com/Xu6s0s5.png");
-
-    private final RenderingHints aa = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-            RenderingHints.VALUE_ANTIALIAS_ON);
-
-    Font myMainFont = new Font("Calibri", 1, 12);
-    Font versionFont = new Font("Calibri", 1, 10);
-
-    @Override
-    public void onPaint(Graphics ui) {
-//        Graphics2D gg = (Graphics2D) ui;
-//        gg.setRenderingHints(aa);
-//        ui.setFont(myMainFont);
-//        ui.setColor(new Color(1, 1, 1, 0.4f));
-//        ui.drawImage(paintBg, 275, 208, 240, 130, null);
-//        ui.drawImage(logo, 345, 213, 99, 33, null);
-//        ui.setColor(Color.white);
-//        ui.drawString("Status: " + getStatus(), 284, 260);
-//        ui.setColor(Color.LIGHT_GRAY);
-//        ui.drawImage(timeIcon, 284, 268, 10, 10, null);
-//        ui.drawString("Runtime: " + Numbers.getHumanisedRuntime(START_TIME), 298, 277);
-//        ui.drawImage(clockworkIcon, 284, 285, 10, 10, null);
-//        ui.drawString("Total Crafted: " + MakingClockworks.getClockworks() + Numbers.getHourly(START_TIME, MakingClockworks.getClockworks()), 298, 294);
-//        ui.drawImage(lootIcon, 284, 302, 10, 10, null);
-//        ui.drawString(Prices.getProfitEstimation(MakingClockworks.getClockworks()) + Numbers.getHourly(START_TIME, Prices.getProfitEstimation(MakingClockworks.getClockworks())), 298, 311);
-//        ui.setColor(Color.red);
-//        ui.setFont(versionFont);
-//        ui.drawString("V.", 480, 205);
-//        ui.setColor(Color.ORANGE);
-//        ui.drawString(String.valueOf(version), 490, 205);
-    }
-
-    @Override
-    public void passArguments(HashMap<String, String> hashMap) {
-        String scriptSelect = hashMap.get("custom_input");
-        String clientStarter = hashMap.get("autostart");
-        String input = clientStarter != null ? clientStarter : scriptSelect;
-        String[] settings = input.split(":");
-        String profileName = "";
-        if (settings.length > 0) {
-            for (String s : settings) {
-                if (s.contains("settings:")) {
-                    profileName = s.split(":")[1] != null ? s.split(":")[1] : null;
-                    logger.setMessage(profileName).print();
+        while (isRunning()) {
+            for (MethodMonitor m : getRunningProfile().getMethodMonitors()) {
+                m.setCurrentProfit(Prices.getProfit(m.getInputItems(), m.getOutputItems()));
+                if (getMostProfit() < m.getCurrentProfit()) {
+                    setMostProfitable(m.getName());
+                    setMostProfit(m.getCurrentProfit());
+                }
+                if (System.currentTimeMillis() - m.getLastPing() > (m.getCooldown() * 60000L)) {
+                    setStatus("Monitoring methods");
+                    switch (m.getMonitorType()) {
+                        case "Above gp/hr threshold":
+                            if (m.getCurrentProfit() > m.getThreshold()) {
+                                logger.setLoggable(Loggable.MESSAGE).setMessage(m.getName() + " is currently exceeding the threshold of " + m.getThreshold() + "gp per hour and is at " + m.getCurrentProfit()).print();
+                                DiscordWebhook.sendWebhook(m.getDiscordUrl(), m.getName() + " is currently profiting " + m.getCurrentProfit() + "gp per hour");
+                            }
+                            break;
+                        case "Below gp/hr threshold":
+                            if (m.getCurrentProfit() < m.getThreshold()) {
+                                logger.setLoggable(Loggable.MESSAGE).setMessage(m.getName() + " is currently below the threshold of " + m.getThreshold() + "gp per hour and is at " + m.getCurrentProfit()).print();
+                                DiscordWebhook.sendWebhook(m.getDiscordUrl(), m.getName() + " is currently under " + m.getCurrentProfit() + "gp per hour");
+                            }
+                            break;
+                        case "Once every 24 hours":
+                            if (timer.timedOut() || timer.getStartTime() == 0) {
+                                timer.setTimeOut(86400000);
+                                logger.setLoggable(Loggable.MESSAGE).setMessage(m.getName() + " is currently at " + m.getCurrentProfit() + "gp per hour").print();
+                                DiscordWebhook.sendWebhook(m.getDiscordUrl(), m.getName() + " is currently " + m.getCurrentProfit() + "gp per hour");
+                                timer.start();
+                            }
+                            break;
+                        case "Once every hour":
+                            if (timer.timedOut() || timer.getStartTime() == 0) {
+                                timer.setTimeOut(3600000);
+                                logger.setLoggable(Loggable.MESSAGE).setMessage(m.getName() + " is currently at " + m.getCurrentProfit() + "gp per hour").print();
+                                DiscordWebhook.sendWebhook(m.getDiscordUrl(), m.getName() + " is currently " + m.getCurrentProfit() + "gp per hour");
+                                timer.start();
+                            }
+                            break;
+                    }
+                    m.setLastPing();
+                } else {
+                    setStatus("Waiting for cooldown to finish");
                 }
             }
-            var loadSettings = ScriptSettings.getDefault()
-                    .load(profileName,Profile.class)
-                    .isPresent();
-            if(loadSettings){
-                logger.setLoggable(Loggable.MESSAGE).setMessage("Successfully loaded " + profileName).print();
-                gui.close();
-            } else {
-                logger.setLoggable(Loggable.ERROR).setMessage("There was a problem loading " + profileName).print();
-            }
+            General.sleep(5000);
         }
-
     }
+
+    private int getCombinedProfit(java.util.List<MethodMonitor> methodMonitors) {
+        int profit = 0;
+        for (MethodMonitor m : methodMonitors) {
+            profit += m.getCurrentProfit();
+        }
+        return profit;
+    }
+
 }

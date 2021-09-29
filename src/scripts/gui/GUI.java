@@ -28,7 +28,6 @@ public class GUI extends Application {
     private Logger guiLogger = new Logger();
     private final URL fxml;
     private final URL stylesheet;
-
     private Stage stage;
     private Scene scene;
     private scripts.gui.AbstractGUIController controller;
@@ -40,6 +39,7 @@ public class GUI extends Application {
         this(fxml, null);
     }
 
+
     public GUI(URL fxml, boolean decorated) {
         this(fxml, null, decorated);
     }
@@ -47,6 +47,8 @@ public class GUI extends Application {
     public GUI(URL fxml, URL stylesheet) {
         this(fxml, stylesheet, true);
     }
+
+
 
     public GUI(URL fxml, URL stylesheet, boolean decorated) {
 
@@ -137,7 +139,7 @@ public class GUI extends Application {
             scene.getStylesheets().add(this.stylesheet.toExternalForm());
 
         stage.setScene(scene);
-        stage.setTitle("SkrrtClockworks");
+        stage.setTitle("SkrrtMonitor");
     }
 
     public <T extends AbstractGUIController> T getController() {
