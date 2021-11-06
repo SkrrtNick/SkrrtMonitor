@@ -46,6 +46,7 @@ public class GUIController extends AbstractGUIController {
     @DoNotRename
     @FXML
     private Button btnSave;
+
     @DoNotRename
     @FXML
     void btnLoadPressed(ActionEvent event) {
@@ -59,6 +60,7 @@ public class GUIController extends AbstractGUIController {
             load(profileName);
         }
     }
+
     @DoNotRename
     @FXML
     void btnSavePressed(ActionEvent event) {
@@ -192,7 +194,7 @@ public class GUIController extends AbstractGUIController {
     @FXML
     private TextField txtUsername;
 
-        @DoNotRename
+    @DoNotRename
     @FXML
     private ListView<String> listEnabledQuests;
     List<String> quests = Quests.getQuests();
@@ -228,19 +230,20 @@ public class GUIController extends AbstractGUIController {
                 setHiscoreValue(player.get(), spinSlayer, Hiscores.Skill.SLAYER);
                 setHiscoreValue(player.get(), spinFarming, Hiscores.Skill.FARMING);
                 setHiscoreValue(player.get(), spinConstruction, Hiscores.Skill.CONSTRUCTION);
-                listPresets.setItems(FXCollections.observableList(Preset.getViablePresets(questRequirements,getSpinnerSkills())));
+                listPresets.setItems(FXCollections.observableList(Preset.getViablePresets(questRequirements, getSpinnerSkills())));
             }
         }
 
     }
+
     @DoNotRename
     @FXML
     void addPresetClicked(ActionEvent event) {
         Preset selectedPreset = listPresets.getSelectionModel().getSelectedItem();
         if (selectedPreset != null) {
-           txtName.setText(selectedPreset.getName());
-           txtInput.setText(parseMethodList(selectedPreset.getInputItems()));
-           txtOutput.setText(parseMethodList(selectedPreset.getOutputItems()));
+            txtName.setText(selectedPreset.getName());
+            txtInput.setText(parseMethodList(selectedPreset.getInputItems()));
+            txtOutput.setText(parseMethodList(selectedPreset.getOutputItems()));
         }
     }
 
@@ -292,7 +295,7 @@ public class GUIController extends AbstractGUIController {
             listQuests.refresh();
             listEnabledQuests.setItems(FXCollections.observableList(questRequirements));
             listEnabledQuests.refresh();
-            listPresets.setItems(FXCollections.observableList(Preset.getViablePresets(questRequirements,getSpinnerSkills())));
+            listPresets.setItems(FXCollections.observableList(Preset.getViablePresets(questRequirements, getSpinnerSkills())));
         }
     }
 
@@ -328,7 +331,7 @@ public class GUIController extends AbstractGUIController {
     @DoNotRename
     @FXML
     void btnRefreshClicked(ActionEvent event) {
-        listPresets.setItems(FXCollections.observableList(Preset.getViablePresets(questRequirements,getSpinnerSkills())));
+        listPresets.setItems(FXCollections.observableList(Preset.getViablePresets(questRequirements, getSpinnerSkills())));
     }
 
 
@@ -384,7 +387,7 @@ public class GUIController extends AbstractGUIController {
             }
         }
         MethodMonitor currentSelected = listMonitors.getSelectionModel().getSelectedItem();
-        if(currentSelected==null){
+        if (currentSelected == null) {
             methods.add(new MethodMonitor(txtName.getText(), cmbType.getValue(), inputItems, outputItems, Integer.parseInt(txtThreshold.getText()), spinCooldown.getValue(), txtUrl.getText()));
         } else {
             methods.remove(currentSelected);
@@ -393,6 +396,7 @@ public class GUIController extends AbstractGUIController {
         logger.setMessage(inputItems.toString()).print();
         listMonitors.setItems(FXCollections.observableList(methods));
     }
+
     @DoNotRename
     @FXML
     void startPressed(ActionEvent event) {
@@ -416,11 +420,13 @@ public class GUIController extends AbstractGUIController {
             spinCooldown.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(5, 1440, methodMonitor.getCooldown()));
         }
     }
+
     @DoNotRename
     @FXML
     void deleteClicked(ActionEvent event) {
         listMonitors.getItems().remove(listMonitors.getSelectionModel().getSelectedItem());
     }
+
     @DoNotRename
     @FXML
     void duplicateClicked(ActionEvent event) {
@@ -509,7 +515,7 @@ public class GUIController extends AbstractGUIController {
         ScriptSettings settings = ScriptSettings.getDefault();
         settings.load(name, Profile.class).ifPresent(
                 s -> {
-                    if(s.getMethodMonitors()!=null){
+                    if (s.getMethodMonitors() != null) {
                         methods.addAll(s.getMethodMonitors());
                     }
                 });
@@ -534,30 +540,30 @@ public class GUIController extends AbstractGUIController {
         return stringBuilder.toString();
     }
 
-    private List<SkillRequirement> getSpinnerSkills(){
+    private List<SkillRequirement> getSpinnerSkills() {
         return List.of(
-                new SkillRequirement(Skill.AGILITY,spinAgility.getValue()),
-                new SkillRequirement(Skill.ATTACK,spinAttack.getValue()),
-                new SkillRequirement(Skill.CONSTRUCTION,spinConstruction.getValue()),
-                new SkillRequirement(Skill.COOKING,spinCooking.getValue()),
-                new SkillRequirement(Skill.CRAFTING,spinCrafting.getValue()),
-                new SkillRequirement(Skill.DEFENCE,spinDefence.getValue()),
+                new SkillRequirement(Skill.AGILITY, spinAgility.getValue()),
+                new SkillRequirement(Skill.ATTACK, spinAttack.getValue()),
+                new SkillRequirement(Skill.CONSTRUCTION, spinConstruction.getValue()),
+                new SkillRequirement(Skill.COOKING, spinCooking.getValue()),
+                new SkillRequirement(Skill.CRAFTING, spinCrafting.getValue()),
+                new SkillRequirement(Skill.DEFENCE, spinDefence.getValue()),
 //                new SkillRequirement(Skill.FARMING,spinFarming.getValue()),
-                new SkillRequirement(Skill.FIREMAKING,spinFiremaking.getValue()),
-                new SkillRequirement(Skill.FISHING,spinFishing.getValue()),
-                new SkillRequirement(Skill.FLETCHING,spinFletching.getValue()),
-                new SkillRequirement(Skill.HERBLORE,spinHerblore.getValue()),
-                new SkillRequirement(Skill.HITPOINTS,spinHitpoints.getValue()),
-                new SkillRequirement(Skill.MAGIC,spinMagic.getValue()),
-                new SkillRequirement(Skill.MINING,spinMining.getValue()),
-                new SkillRequirement(Skill.PRAYER,spinPrayer.getValue()),
-                new SkillRequirement(Skill.RANGED,spinRanged.getValue()),
-                new SkillRequirement(Skill.RUNECRAFT,spinRunecrafting.getValue()),
-                new SkillRequirement(Skill.SLAYER,spinSlayer.getValue()),
-                new SkillRequirement(Skill.SMITHING,spinSmithing.getValue()),
-                new SkillRequirement(Skill.STRENGTH,spinStrength.getValue()),
-                new SkillRequirement(Skill.THIEVING,spinThieving.getValue()),
-                new SkillRequirement(Skill.WOODCUTTING,spinWoodcutting.getValue()));
+                new SkillRequirement(Skill.FIREMAKING, spinFiremaking.getValue()),
+                new SkillRequirement(Skill.FISHING, spinFishing.getValue()),
+                new SkillRequirement(Skill.FLETCHING, spinFletching.getValue()),
+                new SkillRequirement(Skill.HERBLORE, spinHerblore.getValue()),
+                new SkillRequirement(Skill.HITPOINTS, spinHitpoints.getValue()),
+                new SkillRequirement(Skill.MAGIC, spinMagic.getValue()),
+                new SkillRequirement(Skill.MINING, spinMining.getValue()),
+                new SkillRequirement(Skill.PRAYER, spinPrayer.getValue()),
+                new SkillRequirement(Skill.RANGED, spinRanged.getValue()),
+                new SkillRequirement(Skill.RUNECRAFT, spinRunecrafting.getValue()),
+                new SkillRequirement(Skill.SLAYER, spinSlayer.getValue()),
+                new SkillRequirement(Skill.SMITHING, spinSmithing.getValue()),
+                new SkillRequirement(Skill.STRENGTH, spinStrength.getValue()),
+                new SkillRequirement(Skill.THIEVING, spinThieving.getValue()),
+                new SkillRequirement(Skill.WOODCUTTING, spinWoodcutting.getValue()));
     }
 
 }
